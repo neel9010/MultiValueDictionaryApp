@@ -22,27 +22,27 @@ namespace MultiValueDictionaryApp
             {
                 _messageService.EnterCommand_Message();
 
-                string command = Console.ReadLine();
+                string userInput = Console.ReadLine();
 
                 // Invalid Command
-                if (string.IsNullOrEmpty(command))
+                if (string.IsNullOrEmpty(userInput))
                 {
                     _messageService.InvalidCommand_Message();
                     continue;
                 }
 
                 // Get commands from user input
-                string[] commands = command.Split(' ');
-                string action = commands[0].ToUpper();
+                string[] commands = userInput.Split(' ');
+                string command = commands[0].ToUpper();
 
                 string[] args = Array.Empty<string>();
-                if (command.Length > 1)
+                if (userInput.Length > 1)
                 {
                     args = commands.Skip(1).ToArray().FormatArgs();
                 }
 
                 //Add Members
-                if (action == Commands.ADD && args.Length == 2)
+                if (command == Commands.ADD && args.Length == 2)
                 {
                     string key = args[0];
                     string value = args[1];
@@ -59,7 +59,7 @@ namespace MultiValueDictionaryApp
                     }
                 }
                 //Print All Keys
-                else if (action == Commands.KEYS && args.Length == 0)
+                else if (command == Commands.KEYS && args.Length == 0)
                 {
                     HashSet<string> keys = _commandService.GetAllKeys();
 
@@ -73,7 +73,7 @@ namespace MultiValueDictionaryApp
                     }
                 }
                 // Get Members
-                else if (action == Commands.MEMBERS && args.Length == 1)
+                else if (command == Commands.MEMBERS && args.Length == 1)
                 {
                     var members = _commandService.GetAllMembersOfKey(args[0]);
                     if (members != null)
@@ -86,7 +86,7 @@ namespace MultiValueDictionaryApp
                     }
                 }
                 // Remove Member
-                else if (action == Commands.REMOVE && args.Length == 2)
+                else if (command == Commands.REMOVE && args.Length == 2)
                 {
                     string key = args[0];
                     string value = args[1];
@@ -106,7 +106,7 @@ namespace MultiValueDictionaryApp
                     }
                 }
                 // Remove All Members
-                else if (action == Commands.REMOVE_ALL && args.Length == 1)
+                else if (command == Commands.REMOVE_ALL && args.Length == 1)
                 {
                     string key = args[0];
 
@@ -121,19 +121,19 @@ namespace MultiValueDictionaryApp
                     }
                 }
                 // Clear Everything
-                else if (action == Commands.CLEAR && args.Length == 0)
+                else if (command == Commands.CLEAR && args.Length == 0)
                 {
                     _commandService.Clear();
                     _messageService.Cleared_Message();
                 }
                 // Key Exists
-                else if (action == Commands.KEY_EXISTS && args.Length == 1)
+                else if (command == Commands.KEY_EXISTS && args.Length == 1)
                 {
                     bool result = _commandService.ContainsKey(args[0]);
                     _printResultService.PrintResult(result.ToString().ToLower());
                 }
                 // Member Exists
-                else if (action == Commands.MEMBER_EXISTS && args.Length == 2)
+                else if (command == Commands.MEMBER_EXISTS && args.Length == 2)
                 {
                     string key = args[0];
                     string value = args[1];
@@ -142,7 +142,7 @@ namespace MultiValueDictionaryApp
                     _printResultService.PrintResult(result.ToString().ToLower());
                 }
                 // All members
-                else if (action == Commands.ALL_MEMBERS && args.Length == 0)
+                else if (command == Commands.ALL_MEMBERS && args.Length == 0)
                 {
                     List<string>? members = _commandService.GetAllMembers();
                     if (members == null || members.Count == 0)
@@ -155,7 +155,7 @@ namespace MultiValueDictionaryApp
                     }
                 }
                 // All Items
-                else if (action == Commands.ITEMS && args.Length == 0)
+                else if (command == Commands.ITEMS && args.Length == 0)
                 {
                     Dictionary<string, HashSet<string>>? allItems = _commandService.GetAllItems();
 
