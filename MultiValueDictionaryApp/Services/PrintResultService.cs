@@ -11,6 +11,8 @@ namespace MultiValueDictionaryApp.Services
                 count++;
                 PrintResult($"{count}) {key}: {value}");
             }
+            
+             PrintResult("");
         }
 
         public void PrintItems(HashSet<string> items)
@@ -28,6 +30,8 @@ namespace MultiValueDictionaryApp.Services
                     PrintResult($"{count}) {item}");
                 }
             }
+            
+            PrintResult("");
         }
 
         public void PrintItems(List<string> items)
@@ -45,6 +49,8 @@ namespace MultiValueDictionaryApp.Services
                     PrintResult($"{count}) {item}");
                 }
             }
+            
+            PrintResult("");
         }
 
         public void PrintResult(string message)
