@@ -10,7 +10,7 @@ The Multi-Value Dictionary app is a command line application that stores a multi
 1. Clone this repository or download the zip file to your local computer.
 2. Open the Solution from Visual Studio or double click from the folder.
 3. Build the Solution using build menu in Visual Studio.
-4. Run the program and follow the command instructions shown on screee.
+4. Run the program and follow the instructions shown on screen.
 
 It should support the following commands.
 
