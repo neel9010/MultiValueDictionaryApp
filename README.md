@@ -2,8 +2,15 @@
 
 **System Requirements:**
 [.NET CORE Runtime or SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
+[Visual Studio 2022](https://visualstudio.microsoft.com/vs/whatsnew/)
 
 The Multi-Value Dictionary app is a command line application that stores a multivalue dictionary in memory.  All keys and members are strings.
+
+**Run Application**
+1. Clone this repository or download the zip file to your local computer.
+2. Open the Solution from Visual Studio or double click from the folder.
+3. Build the Solution using build menu in Visual Studio.
+4. Run the program and follow the command instructions shown on screee.
 
 It should support the following commands.
 
