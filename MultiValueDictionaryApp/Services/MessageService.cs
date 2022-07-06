@@ -53,12 +53,12 @@ namespace MultiValueDictionaryApp.Services
         public void AppInfo_Message()
         {
             DisplayMessage(AppMessages.APP_INFO);
-            DisplayMessage("");
         }
 
         private static void DisplayMessage(string message)
         {
             Console.WriteLine(message);
+            Console.WriteLine("");
         }
     }
 }
