@@ -2,9 +2,9 @@
 {
     public interface ICommandService
     {
-        public HashSet<string> GetAllKeys();
+        public HashSet<string>? GetAllKeys();
 
-        public HashSet<string> GetAllMembersOfKey(string key);
+        public HashSet<string>? GetAllMembersOfKey(string key);
 
         public void AddMember(string key, string value);
 

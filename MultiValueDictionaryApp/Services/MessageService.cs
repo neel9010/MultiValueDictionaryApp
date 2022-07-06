@@ -7,32 +7,32 @@ namespace MultiValueDictionaryApp.Services
     {
         public void Added_Message()
         {
-            Console.WriteLine(ActionMessages.ADDED);
+            DisplayMessage(ActionMessages.ADDED);
         }
 
         public void KeyNotExists_Message()
         {
-            Console.WriteLine(ActionMessages.KEY_DOES_NOT_EXIST);
+            DisplayMessage(ActionMessages.KEY_DOES_NOT_EXIST);
         }
 
         public void MemberExists_Message()
         {
-            Console.WriteLine(ActionMessages.MEMBER_EXISTS_FOR_KEY);
+            DisplayMessage(ActionMessages.MEMBER_EXISTS_FOR_KEY);
         }
 
         public void MemberNotExists_Message()
         {
-            Console.WriteLine(ActionMessages.MEMBER_DOES_NOT_EXIST);
+            DisplayMessage(ActionMessages.MEMBER_DOES_NOT_EXIST);
         }
 
         public void Removed_Message()
         {
-            Console.WriteLine(ActionMessages.REMOVED);
+            DisplayMessage(ActionMessages.REMOVED);
         }
 
         public void EmptySet_Message()
         {
-            Console.WriteLine(ActionMessages.EMPTY);
+            DisplayMessage(ActionMessages.EMPTY);
         }
 
         public void EnterCommand_Message()
@@ -42,12 +42,23 @@ namespace MultiValueDictionaryApp.Services
 
         public void InvalidCommand_Message()
         {
-            Console.WriteLine(ActionMessages.INVALID_COMMAND);
+            DisplayMessage(ActionMessages.INVALID_COMMAND);
         }
 
         public void Cleared_Message()
         {
-            Console.WriteLine(ActionMessages.CLEARED);
+            DisplayMessage(ActionMessages.CLEARED);
+        }
+
+        public void AppInfo_Message()
+        {
+            DisplayMessage(AppMessages.APP_INFO);
+            DisplayMessage("");
+        }
+
+        private static void DisplayMessage(string message)
+        {
+            Console.WriteLine(message);
         }
     }
 }

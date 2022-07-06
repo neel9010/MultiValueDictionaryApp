@@ -19,5 +19,7 @@
         public void InvalidCommand_Message();
 
         public void Cleared_Message();
+
+        public void AppInfo_Message();
     }
 }

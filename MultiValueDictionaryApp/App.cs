@@ -18,11 +18,15 @@ namespace MultiValueDictionaryApp
 
         public void Run()
         {
+            _messageService.AppInfo_Message();
+            _printResultService.PrintItems(Commands.AVAILABLE_COMMANDS);
+            Console.WriteLine();
+
             while (true)
             {
                 _messageService.EnterCommand_Message();
 
-                string userInput = Console.ReadLine();
+                string? userInput = Console.ReadLine();
 
                 // Invalid Command
                 if (string.IsNullOrEmpty(userInput))
@@ -47,7 +51,6 @@ namespace MultiValueDictionaryApp
                     string key = args[0];
                     string value = args[1];
 
-                    // check if member is already exists for give key
                     if (_commandService.ContainsMember(key, value))
                     {
                         _messageService.MemberExists_Message();
@@ -61,7 +64,7 @@ namespace MultiValueDictionaryApp
                 //Print All Keys
                 else if (command == Commands.KEYS && args.Length == 0)
                 {
-                    HashSet<string> keys = _commandService.GetAllKeys();
+                    HashSet<string>? keys = _commandService.GetAllKeys();
 
                     if (keys != null && keys.Count > 0)
                     {
@@ -144,7 +147,7 @@ namespace MultiValueDictionaryApp
                 // All members
                 else if (command == Commands.ALL_MEMBERS && args.Length == 0)
                 {
-                    List<string>? members = _commandService.GetAllMembers();
+                    List<string> members = _commandService.GetAllMembers();
                     if (members == null || members.Count == 0)
                     {
                         _messageService.EmptySet_Message();
@@ -174,6 +177,16 @@ namespace MultiValueDictionaryApp
                             count = item.Value.Count;
                         }
                     }
+                }
+                // List All Commands
+                else if (command == Commands.LIST_COMMANDS && args.Length == 0)
+                {
+                    _printResultService.PrintItems(Commands.AVAILABLE_COMMANDS);
+                }
+                // Quit Application
+                else if (command == Commands.QUIT && args.Length == 0)
+                {
+                    Environment.Exit(0);
                 }
                 // Invalid Command
                 else
